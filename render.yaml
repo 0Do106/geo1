@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: yeongdo-construction-classroom
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_PATH
+        value: /var/data/construction-classroom.db
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: TOKEN_EXPIRES_IN
+        value: 4h
+      - key: ALLOWED_ORIGINS
+        sync: false
+    disk:
+      name: construction-data
+      mountPath: /var/data
+      sizeGB: 1

@@ -1,0 +1,28 @@
+{
+  "name": "yeongdo-construction-classroom",
+  "version": "1.1.0",
+  "private": true,
+  "description": "실제 도구 조작감, 지우개, Excel 내보내기를 포함한 중학교 1학년 작도 학습 웹앱",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node --check server.js",
+    "hash-password": "node -e \"const b=require('bcryptjs'); const p=process.argv[1]; if(!p){console.error('사용법: npm run hash-password -- 원하는비밀번호'); process.exit(1)}; console.log(b.hashSync(p,12))\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "better-sqlite3": "^12.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^4.0.14",
+    "exceljs": "^4.4.0"
+  }
+}
